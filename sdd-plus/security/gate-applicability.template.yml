@@ -1,0 +1,231 @@
+# Copy this file to a project-specific filename before using it as a launch record.
+project: ""
+change: ""
+date: ""
+owner: ""
+
+launchguardian:
+  applies: "unknown"
+  confidence: "low"
+  evidence: []
+  reason: ""
+  human_confirmation_required: true
+  confirmed_by: ""
+  confirmed_at: ""
+  deployable_artifact: ""
+  launch_target: ""
+
+gates:
+  scope_permission:
+    name: "Scope & Permission"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  product_asset_data_inventory:
+    name: "Product, Asset & Data Inventory"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  threat_modeling:
+    name: "Threat Modeling"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  code_security:
+    name: "Code Security"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  secrets_config_hygiene:
+    name: "Secrets & Config Hygiene"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  frontend_exposure:
+    name: "Frontend Exposure"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  api_auth_object_authorization:
+    name: "API Auth & Object Authorization"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  injection_input_safety:
+    name: "Injection & Input Safety"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  auth_sessions_csrf:
+    name: "Auth, Sessions & CSRF"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  file_upload_ssrf_imports_exports:
+    name: "File Upload, SSRF, Imports & Exports"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  dependency_sbom_supply_chain:
+    name: "Dependency, SBOM & Supply Chain"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  infrastructure_dns_tls_web_hardening:
+    name: "Infrastructure, DNS, TLS & Web Hardening"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  resilience_ddos_abuse_cost_defense:
+    name: "Resilience, DDoS, Abuse & Cost Defense"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  webhooks_background_jobs_integrations:
+    name: "Webhooks, Background Jobs & Integrations"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  privacy_legal_data_lifecycle:
+    name: "Privacy, Legal & Data Lifecycle"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  ai_rag_agent_security:
+    name: "AI/RAG/Agent Security"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  multi_tenant_internal_permission_isolation:
+    name: "Multi-Tenant & Internal Permission Isolation"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  observability_logs_incident_readiness:
+    name: "Observability, Logs & Incident Readiness"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  backup_recovery_deletion_rotation:
+    name: "Backup, Recovery, Deletion & Rotation"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  business_logic_abuse:
+    name: "Business Logic Abuse"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+  launch_decision:
+    name: "Launch Decision"
+    applies: true
+    confidence: "high"
+    evidence: []
+    reason: "Every LGF review needs an explicit launch decision."
+    human_confirmation_required: true
+    confirmed_by: ""
+    confirmed_at: ""
+  continuous_monitoring:
+    name: "Continuous Monitoring"
+    applies: "unknown"
+    confidence: "low"
+    evidence: []
+    reason: ""
+    human_confirmation_required: false
+    confirmed_by: ""
+    confirmed_at: ""
+
+allowed_values:
+  applies:
+    - true
+    - false
+    - "unknown"
+  confidence:
+    - "high"
+    - "medium"
+    - "low"
+
+notes:
+  - "Agents may propose gate applicability."
+  - "Humans must confirm skipped high-risk gates."
+  - "Use human_confirmation_required: true when a skipped or uncertain gate affects launch risk."

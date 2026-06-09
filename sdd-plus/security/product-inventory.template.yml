@@ -1,0 +1,38 @@
+# Copy this file to a project-specific filename before using it as a launch record.
+project: ""
+change: ""
+date: ""
+owner: ""
+
+components:
+  - name: ""
+    type: ""
+    description: ""
+    repository_or_location: ""
+    environment: ""
+    public_exposure: ""
+    owner: ""
+
+entry_points:
+  - name: ""
+    type: ""
+    path_or_url: ""
+    authentication_required: ""
+    expected_users: ""
+
+background_processes:
+  - name: ""
+    trigger: ""
+    permissions: ""
+    data_access: ""
+
+admin_surfaces:
+  - name: ""
+    access_control: ""
+    audit_or_logging: ""
+
+operational_controls:
+  monitoring: ""
+  alerting: ""
+  backups: ""
+  rollback: ""

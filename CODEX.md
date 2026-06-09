@@ -42,6 +42,18 @@ Use SDD+ for meaningful changes:
 6. Update README, standards, or specs when behavior, setup, APIs, data, deployment, or model usage changes.
 7. Run `.\scripts\sdd.ps1 verify <change-name>` before calling implementation complete.
 
+## LaunchGuardian Framework
+
+LaunchGuardian Framework (LGF) is required for deployable projects.
+
+Use LGF when work affects launch readiness, security, authentication, authorization, privacy, deployment, database/storage, frontend exposure, infrastructure, dependencies, or production/sensitive data. Refer to `sdd-plus/specs/launchguardian-framework.md` and `sdd-plus/standards/security-shipping-standards.md`.
+
+Agents may propose which LGF gates apply and which gates appear safe to skip. Humans must confirm skipped high-risk gates before launch.
+
+Critical findings block launch. Do not mark a deployable change launch-ready while a critical finding remains open.
+
+Treat security, auth, privacy, deployment, database, frontend exposure, and infrastructure changes as high-impact.
+
 Commands:
 
 ```powershell

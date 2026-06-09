@@ -1,0 +1,93 @@
+version: 0.1.0
+registry_name: Codex Mask Registry
+owner: Daniel
+description: >
+  Registry of reusable Codex operating procedures for AI-assisted software development.
+
+rules:
+  require_mask_selection_before_meaningful_work: true
+  require_primary_mask: true
+  allow_supporting_masks: true
+  propose_new_mask_if_no_fit: true
+  require_evidence_report: true
+
+statuses:
+  placeholder: named but not designed yet
+  draft: designed but not battle-tested
+  active: usable as a Codex operating procedure
+  graduated: became its own tool, repo, workflow, or formal subsystem
+  deprecated: replaced or no longer recommended
+
+masks:
+  - id: launchguardian
+    name: LaunchGuardian Mask
+    status: graduated
+    version: 0.1.0
+    path: sdd-plus/masks/launchguardian/mask.md
+    purpose: Secure-shipping review for repos before launch.
+    primary_use_cases:
+      - Review whether a repo is safe enough to ship.
+      - Validate LaunchGuardian Framework files.
+      - Run local defensive scanner checks.
+    supporting_use_cases:
+      - Final review after backend, frontend, API, database, or MCP changes.
+    tool_repo: launchguardian-cli
+    framework_docs:
+      - sdd-plus/specs/launchguardian-framework.md
+      - sdd-plus/specs/launchguardian-cli-product-spec.md
+
+  - id: architect
+    name: Architect Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/architect/mask.md
+    purpose: Plan system architecture before implementation.
+
+  - id: backend
+    name: Backend Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/backend/mask.md
+    purpose: Guide safe backend implementation.
+
+  - id: frontend
+    name: Frontend Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/frontend/mask.md
+    purpose: Guide frontend/UI implementation.
+
+  - id: api-contract
+    name: API Contract Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/api-contract/mask.md
+    purpose: Design and review API contracts, schemas, auth, and endpoint behavior.
+
+  - id: database-steward
+    name: Database Steward Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/database-steward/mask.md
+    purpose: Design and review schemas, migrations, indexes, data access, and RLS.
+
+  - id: testing
+    name: Testing Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/testing/mask.md
+    purpose: Guide unit, integration, smoke, regression, and acceptance testing.
+
+  - id: explainer
+    name: Explainer Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/explainer/mask.md
+    purpose: Explain code, architecture, and implementation decisions clearly for Daniel.
+
+  - id: mcp-ranger
+    name: MCP Ranger Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/mcp-ranger/mask.md
+    purpose: Review MCP/tool integrations, permissions, data access, and revocation risks.

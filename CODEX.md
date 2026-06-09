@@ -42,6 +42,21 @@ Use SDD+ for meaningful changes:
 6. Update README, standards, or specs when behavior, setup, APIs, data, deployment, or model usage changes.
 7. Run `.\scripts\sdd.ps1 verify <change-name>` before calling implementation complete.
 
+## Codex Mask Selection Rule
+
+Before starting meaningful work, Codex must identify which Codex Mask or masks apply.
+
+Codex must:
+
+1. Review `sdd-plus/masks/mask-registry.yml`.
+2. Declare one primary mask.
+3. Declare any supporting masks if relevant.
+4. Follow the selected mask's required inputs, outputs, boundaries, and evidence rules.
+5. Produce a Mask Evidence Report when the task changes files, architecture, behavior, configuration, security posture, tests, or documentation.
+6. If no mask fits, propose a new mask instead of improvising.
+
+For trivial edits, typo fixes, or formatting-only changes, Codex may state that no full mask execution is required.
+
 ## LaunchGuardian Framework
 
 LaunchGuardian Framework (LGF) is required for deployable projects.

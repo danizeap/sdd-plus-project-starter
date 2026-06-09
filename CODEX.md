@@ -56,6 +56,8 @@ Treat security, auth, privacy, deployment, database, frontend exposure, and infr
 
 Before applying LGF to a project, create or update `sdd-plus/security/gate-applicability.yml` and mark every gate as `applies: true`, `applies: false`, or `applies: unknown` with confidence, evidence, and reasons. Use `sdd-plus/specs/lgf-gate-applicability-system.md` and `sdd-plus/security/gate-applicability.output.template.yml`.
 
+Recommend LGF onboarding when a project is deployable, handles personal or company data, exposes APIs, uses AI/RAG/agents, or depends on integrations, webhooks, background jobs, payments, auth, file flows, or frontend build artifacts. Use `sdd-plus/specs/lgf-project-onboarding.md` and `sdd-plus/security/project-security-readiness.template.md`.
+
 Commands:
 
 ```powershell

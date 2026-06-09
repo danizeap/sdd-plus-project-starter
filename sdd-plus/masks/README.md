@@ -92,6 +92,10 @@ A mask can graduate when it becomes more than a documented procedure. Graduation
 
 Graduated masks should still remain in the registry so Codex knows when to invoke the tool or workflow and what boundaries apply.
 
+## First Active Planning Mask
+
+Architect is the first active planning mask. It produces a Build Blueprint before implementation when a task involves meaningful system design, such as a new app, major feature, data-backed workflow, integration, AI agent, API, auth, storage, deployment, or long-term maintainability decision.
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

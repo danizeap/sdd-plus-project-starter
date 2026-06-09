@@ -38,10 +38,16 @@ masks:
 
   - id: architect
     name: Architect Mask
-    status: placeholder
-    version: 0.0.0
+    status: active
+    version: 0.1.0
     path: sdd-plus/masks/architect/mask.md
-    purpose: Plan system architecture before implementation.
+    purpose: Plan system architecture before implementation and produce a Build Blueprint.
+    primary_use_cases:
+      - Plan a new software product, app, internal tool, or AI system before implementation.
+      - Define components, data flow, API boundaries, auth assumptions, risks, and implementation phases.
+      - Decide which implementation mask should be used next.
+    supporting_use_cases:
+      - Pre-work before Backend, Frontend, API Contract, Database Steward, Testing, MCP Ranger, or LaunchGuardian masks.
 
   - id: backend
     name: Backend Mask

@@ -58,6 +58,8 @@ Before applying LGF to a project, create or update `sdd-plus/security/gate-appli
 
 Recommend LGF onboarding when a project is deployable, handles personal or company data, exposes APIs, uses AI/RAG/agents, or depends on integrations, webhooks, background jobs, payments, auth, file flows, or frontend build artifacts. Use `sdd-plus/specs/lgf-project-onboarding.md` and `sdd-plus/security/project-security-readiness.template.md`.
 
+LaunchGuardian CLI/scanner is a future separate implementation. The SDD+ starter should only host framework docs and templates unless the active work is explicitly in the CLI repo. See `sdd-plus/specs/launchguardian-cli-product-spec.md`.
+
 Commands:
 
 ```powershell

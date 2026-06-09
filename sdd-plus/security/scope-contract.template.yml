@@ -4,6 +4,11 @@ change: ""
 date: ""
 owner: ""
 
+related_gates:
+  - "Gate 0 — Scope & Permission"
+  - "Gate 1 — Product, Asset & Data Inventory"
+  - "Gate 11 — Infrastructure, DNS, TLS & Web Hardening"
+
 scope:
   summary: ""
   launch_type: ""

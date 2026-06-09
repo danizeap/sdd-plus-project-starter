@@ -27,6 +27,11 @@ add-launchguardian-framework
 - [x] Confirmed LGF language is generic and not company-specific.
 - [x] Confirmed the canonical LGF gate list appears in framework docs and launch templates.
 - [x] Confirmed gate applicability includes applies, confidence, evidence, reason, human_confirmation_required, confirmed_by, and confirmed_at.
+- [x] Confirmed full gate lists are numbered Gate 0 through Gate 21 in the spec, standards, gate-applicability template, and launch-decision template.
+- [x] Confirmed skipped high-risk gate enforcement language requires human_confirmation_required, confirmed_by, confirmed_at, reason, and evidence.
+- [x] Confirmed launch decision template says Critical findings keep the decision BLOCKED unless explicitly approved with remediation or compensating controls.
+- [x] Confirmed related gate metadata was added to the security templates.
+- [x] Confirmed review fixes are aligned to the pasted master LaunchGuardian context.
 
 ## Documentation Updates
 

@@ -44,30 +44,32 @@ Canonical LGF gates:
 
 | Gate | Purpose |
 | --- | --- |
-| Scope & Permission | Confirm what is being launched, who approved the review scope, and what is intentionally out of scope. |
-| Product, Asset & Data Inventory | Record components, exposed surfaces, assets, data classes, owners, and trust boundaries. |
-| Threat Modeling | Identify likely threats, abuse paths, mitigations, residual risk, and launch blockers. |
-| Code Security | Review security-sensitive code paths, unsafe patterns, privilege boundaries, and implementation evidence. |
-| Secrets & Config Hygiene | Confirm secrets, tokens, keys, credentials, and environment configuration are handled safely. |
-| Frontend Exposure | Review public routes, browser storage, client-side secrets, CORS, CSP, and user-controlled rendering. |
-| API Auth & Object Authorization | Confirm API authentication, object-level authorization, tenant boundaries, and permission checks. |
-| Injection & Input Safety | Review input validation, output encoding, query construction, command execution, and parser safety. |
-| Auth, Sessions & CSRF | Review login, signup, password reset, session lifecycle, cookies, MFA, CSRF, and logout behavior. |
-| File Upload, SSRF, Imports & Exports | Review file handling, remote fetches, import/export formats, SSRF controls, and content processing. |
-| Dependency, SBOM & Supply Chain | Review dependency policy, lockfiles, vulnerability thresholds, package sources, and SBOM expectations. |
-| Infrastructure, DNS, TLS & Web Hardening | Review hosting, DNS, TLS, headers, network exposure, environment separation, and web hardening. |
-| Resilience, DDoS, Abuse & Cost Defense | Review rate limits, quotas, retries, abuse paths, cost controls, and degradation behavior. |
-| Webhooks, Background Jobs & Integrations | Review webhook verification, job idempotency, retries, third-party integrations, and failure handling. |
-| Privacy, Legal & Data Lifecycle | Review personal data, notice/consent, retention, deletion, legal constraints, and data sharing. |
-| AI/RAG/Agent Security | Review prompt injection, tool permissions, retrieval boundaries, model data exposure, and agent actions. |
-| Multi-Tenant & Internal Permission Isolation | Review tenant isolation, internal roles, admin access, scoped permissions, and cross-account access. |
-| Observability, Logs & Incident Readiness | Review logging, monitoring, alerting, sensitive log data, incident paths, and ownership. |
-| Backup, Recovery, Deletion & Rotation | Review backups, restore tests, deletion paths, credential rotation, and recovery objectives. |
-| Business Logic Abuse | Review workflow abuse, fraud paths, privilege escalation through product logic, and bypasses. |
-| Launch Decision | Record findings, accepted risks, skipped gates, rollback plan, and final human approval. |
-| Continuous Monitoring | Record post-launch monitoring, review cadence, recurring checks, and ownership. |
+| Gate 0 — Scope & Permission | Confirm what is being launched, who approved the review scope, and what is intentionally out of scope. |
+| Gate 1 — Product, Asset & Data Inventory | Record components, exposed surfaces, assets, data classes, owners, and trust boundaries. |
+| Gate 2 — Threat Modeling | Identify likely threats, abuse paths, mitigations, residual risk, and launch blockers. |
+| Gate 3 — Code Security | Review security-sensitive code paths, unsafe patterns, privilege boundaries, and implementation evidence. |
+| Gate 4 — Secrets & Config Hygiene | Confirm secrets, tokens, keys, credentials, and environment configuration are handled safely. |
+| Gate 5 — Frontend Exposure | Review public routes, browser storage, client-side secrets, CORS, CSP, and user-controlled rendering. |
+| Gate 6 — API Auth & Object Authorization | Confirm API authentication, object-level authorization, tenant boundaries, and permission checks. |
+| Gate 7 — Injection & Input Safety | Review input validation, output encoding, query construction, command execution, and parser safety. |
+| Gate 8 — Auth, Sessions & CSRF | Review login, signup, password reset, session lifecycle, cookies, MFA, CSRF, and logout behavior. |
+| Gate 9 — File Upload, SSRF, Imports & Exports | Review file handling, remote fetches, import/export formats, SSRF controls, and content processing. |
+| Gate 10 — Dependency, SBOM & Supply Chain | Review dependency policy, lockfiles, vulnerability thresholds, package sources, and SBOM expectations. |
+| Gate 11 — Infrastructure, DNS, TLS & Web Hardening | Review hosting, DNS, TLS, headers, network exposure, environment separation, and web hardening. |
+| Gate 12 — Resilience, DDoS, Abuse & Cost Defense | Review rate limits, quotas, retries, abuse paths, cost controls, and degradation behavior. |
+| Gate 13 — Webhooks, Background Jobs & Integrations | Review webhook verification, job idempotency, retries, third-party integrations, and failure handling. |
+| Gate 14 — Privacy, Legal & Data Lifecycle | Review personal data, notice/consent, retention, deletion, legal constraints, and data sharing. |
+| Gate 15 — AI/RAG/Agent Security | Review prompt injection, tool permissions, retrieval boundaries, model data exposure, and agent actions. |
+| Gate 16 — Multi-Tenant & Internal Permission Isolation | Review tenant isolation, internal roles, admin access, scoped permissions, and cross-account access. |
+| Gate 17 — Observability, Logs & Incident Readiness | Review logging, monitoring, alerting, sensitive log data, incident paths, and ownership. |
+| Gate 18 — Backup, Recovery, Deletion & Rotation | Review backups, restore tests, deletion paths, credential rotation, and recovery objectives. |
+| Gate 19 — Business Logic Abuse | Review workflow abuse, fraud paths, privilege escalation through product logic, and bypasses. |
+| Gate 20 — Launch Decision | Record findings, accepted risks, skipped gates, rollback plan, and final human approval. |
+| Gate 21 — Continuous Monitoring | Record post-launch monitoring, review cadence, recurring checks, and ownership. |
 
 Codex or another agent may propose which gates apply. A human must confirm skipped high-risk gates before launch.
+
+For any high-risk gate, `applies: false` is invalid unless all of the following are filled: `human_confirmation_required: true`, `confirmed_by`, `confirmed_at`, `reason`, and `evidence`.
 
 ## Severity Model
 

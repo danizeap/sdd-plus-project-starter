@@ -10,6 +10,14 @@ Copy this file to a project-specific filename before using it as a launch record
 - Owner:
 - Scope:
 
+## Related Gates
+
+- Gate 2 — Threat Modeling
+- Gate 3 — Code Security
+- Gate 7 — Injection & Input Safety
+- Gate 12 — Resilience, DDoS, Abuse & Cost Defense
+- Gate 19 — Business Logic Abuse
+
 ## System Summary
 
 Describe the deployable artifact, users, environments, major components, and external dependencies.

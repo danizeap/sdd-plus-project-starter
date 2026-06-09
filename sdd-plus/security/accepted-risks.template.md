@@ -4,6 +4,10 @@ Copy this file to a project-specific filename before using it as a launch record
 
 Critical findings block launch and should not be accepted as routine launch risks.
 
+## Related Gates
+
+- Gate 20 — Launch Decision
+
 | ID | Date | Risk | Severity | Reason For Acceptance | Mitigation | Owner | Review Date | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | TBD | TBD | TBD | TBD | TBD | TBD | TBD | TBD | TBD |

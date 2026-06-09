@@ -3,6 +3,9 @@ project: ""
 date: ""
 owner: ""
 
+related_gates:
+  - "Gate 10 — Dependency, SBOM & Supply Chain"
+
 policy:
   package_managers:
     - ""

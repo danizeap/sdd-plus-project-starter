@@ -4,6 +4,12 @@ change: ""
 date: ""
 owner: ""
 
+related_gates:
+  - "Gate 1 — Product, Asset & Data Inventory"
+  - "Gate 5 — Frontend Exposure"
+  - "Gate 13 — Webhooks, Background Jobs & Integrations"
+  - "Gate 17 — Observability, Logs & Incident Readiness"
+
 components:
   - name: ""
     type: ""

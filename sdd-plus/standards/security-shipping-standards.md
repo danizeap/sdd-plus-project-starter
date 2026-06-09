@@ -50,34 +50,42 @@ For each deployable change, record:
 
 Skipped high-risk gates must include a human-confirmed reason.
 
+For any high-risk gate, `applies: false` is invalid unless all of the following are filled:
+
+- `human_confirmation_required: true`
+- `confirmed_by`
+- `confirmed_at`
+- `reason`
+- `evidence`
+
 ## Required LGF Gates
 
 Evaluate every gate for deployable projects:
 
-- Scope & Permission
-- Product, Asset & Data Inventory
-- Threat Modeling
-- Code Security
-- Secrets & Config Hygiene
-- Frontend Exposure
-- API Auth & Object Authorization
-- Injection & Input Safety
-- Auth, Sessions & CSRF
-- File Upload, SSRF, Imports & Exports
-- Dependency, SBOM & Supply Chain
-- Infrastructure, DNS, TLS & Web Hardening
-- Resilience, DDoS, Abuse & Cost Defense
-- Webhooks, Background Jobs & Integrations
-- Privacy, Legal & Data Lifecycle
-- AI/RAG/Agent Security
-- Multi-Tenant & Internal Permission Isolation
-- Observability, Logs & Incident Readiness
-- Backup, Recovery, Deletion & Rotation
-- Business Logic Abuse
-- Launch Decision
-- Continuous Monitoring
+- Gate 0 — Scope & Permission
+- Gate 1 — Product, Asset & Data Inventory
+- Gate 2 — Threat Modeling
+- Gate 3 — Code Security
+- Gate 4 — Secrets & Config Hygiene
+- Gate 5 — Frontend Exposure
+- Gate 6 — API Auth & Object Authorization
+- Gate 7 — Injection & Input Safety
+- Gate 8 — Auth, Sessions & CSRF
+- Gate 9 — File Upload, SSRF, Imports & Exports
+- Gate 10 — Dependency, SBOM & Supply Chain
+- Gate 11 — Infrastructure, DNS, TLS & Web Hardening
+- Gate 12 — Resilience, DDoS, Abuse & Cost Defense
+- Gate 13 — Webhooks, Background Jobs & Integrations
+- Gate 14 — Privacy, Legal & Data Lifecycle
+- Gate 15 — AI/RAG/Agent Security
+- Gate 16 — Multi-Tenant & Internal Permission Isolation
+- Gate 17 — Observability, Logs & Incident Readiness
+- Gate 18 — Backup, Recovery, Deletion & Rotation
+- Gate 19 — Business Logic Abuse
+- Gate 20 — Launch Decision
+- Gate 21 — Continuous Monitoring
 
-Each gate may be marked `applies: true`, `applies: false`, or `applies: unknown`. A gate marked `false` should include a reason, evidence when available, confidence, and human confirmation when the skipped gate is high-risk.
+Each gate may be marked `applies: true`, `applies: false`, or `applies: unknown`. A high-risk gate marked `applies: false` must satisfy the high-risk skip rule above.
 
 ## Blocking Findings
 

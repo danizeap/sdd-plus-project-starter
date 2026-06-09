@@ -1,4 +1,7 @@
+# Project-use output template for LGF gate applicability.
 # Copy this file to sdd-plus/security/gate-applicability.yml for a project-specific LGF review.
+# This template applies always-on defaults for deployable projects.
+# The neutral schema/reference template is sdd-plus/security/gate-applicability.template.yml.
 project: ""
 change: ""
 date: ""

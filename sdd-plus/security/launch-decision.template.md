@@ -11,7 +11,9 @@ Copy this file to a project-specific filename before using it as a launch record
 - Launch target:
 - Decision: Pending
 
-Decision must remain BLOCKED while any Critical finding is open. Critical findings cannot be accepted as normal risk without explicit written owner approval and a documented remediation or compensating-control plan.
+Decision must remain BLOCKED while any Critical finding is open. Critical findings block launch until the finding is fixed and verified, the affected feature or asset is removed from launch scope, or the severity is downgraded by new evidence.
+
+An exceptional Critical override is not normal approval. If a project defines one, it must require explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 
 ## Related Gates
 
@@ -49,7 +51,7 @@ Decision must remain BLOCKED while any Critical finding is open. Critical findin
 
 | Severity | Count | Launch Impact |
 | --- | --- | --- |
-| Critical | 0 | Blocks launch if greater than 0 |
+| Critical | 0 | Blocks launch if greater than 0 until fixed and verified, removed from launch scope, or downgraded by new evidence |
 | High | 0 | Blocks launch unless explicitly accepted by a human owner |
 | Medium | 0 | Track mitigation or follow-up |
 | Low | 0 | Track if useful |

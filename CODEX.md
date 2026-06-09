@@ -50,7 +50,7 @@ Use LGF when work affects launch readiness, security, authentication, authorizat
 
 Agents may propose which LGF gates apply and which gates appear safe to skip. Humans must confirm skipped high-risk gates before launch.
 
-Critical findings block launch. Do not mark a deployable change launch-ready while a critical finding remains open.
+Critical findings block launch until fixed and verified, removed from launch scope, or downgraded by new evidence. Do not mark a deployable change launch-ready while a critical finding remains open.
 
 Treat security, auth, privacy, deployment, database, frontend exposure, and infrastructure changes as high-impact.
 

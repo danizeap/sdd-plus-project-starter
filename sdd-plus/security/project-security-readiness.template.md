@@ -21,6 +21,14 @@ Allowed readiness statuses:
 - `approved_with_accepted_risks`
 - `approved`
 
+## Related Gates
+
+- Gate 0 — Scope & Permission
+- Gate 1 — Product, Asset & Data Inventory
+- Gate 2 — Threat Modeling
+- Gate 20 — Launch Decision
+- Gate 21 — Continuous Monitoring
+
 ## Activation Triggers
 
 Mark each trigger `yes`, `no`, or `unknown`.
@@ -59,13 +67,14 @@ Mark each trigger `yes`, `no`, or `unknown`.
 - [ ] Data inventory created or explicitly marked not applicable with evidence.
 - [ ] Gate applicability matrix created at `sdd-plus/security/gate-applicability.yml`.
 - [ ] Every gate marked `applies: true`, `applies: false`, or `applies: unknown`.
-- [ ] High-risk skipped gates confirmed by a human with `confirmed_by`, `confirmed_at`, `reason`, and evidence.
+- [ ] High-risk skipped gates confirmed by a human with `human_confirmation_required: true`, `confirmed_by`, `confirmed_at`, `reason`, and evidence.
 - [ ] Threat model created.
 - [ ] Auth role matrix created when APIs, auth, or data exist.
 - [ ] Dependency policy created.
 - [ ] Accepted risks log created, even when no risks are accepted.
 - [ ] Launch decision file created.
-- [ ] Critical findings reviewed and resolved, removed from launch scope, or explicitly owner-approved with remediation or compensating controls.
+- [ ] Critical findings fixed and verified, removed from launch scope, or downgraded by new evidence.
+- [ ] Any exceptional Critical override includes explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 - [ ] Rollback or disable plan documented.
 - [ ] Final launch owner approval recorded.
 

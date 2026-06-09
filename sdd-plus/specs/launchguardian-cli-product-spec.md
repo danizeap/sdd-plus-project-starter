@@ -96,11 +96,13 @@ Field meanings:
 
 The CLI should apply LGF launch rules consistently:
 
-- Critical open findings block launch.
+- Critical open findings block launch until the finding is fixed and verified, the affected feature or asset is removed from launch scope, or the severity is downgraded by new evidence.
 - High findings block launch unless accepted by a human owner with documented reason, mitigation, and review date.
 - Medium findings do not block launch by default, but should be tracked.
 - Low findings do not block launch by default, but may be tracked as hardening work.
 - Skipped high-risk gates without required confirmation block launch.
+
+An exceptional Critical override is not normal approval. If a project defines one, it must require explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 
 For any high-risk gate, `applies: false` is invalid unless all of the following are filled:
 
@@ -111,6 +113,85 @@ For any high-risk gate, `applies: false` is invalid unless all of the following 
 - `evidence`
 
 Release gate scans should return a non-zero exit code when launch is blocked.
+
+## Canonical Gate References
+
+`related_gate` values must use canonical LGF Gate 0 through Gate 21 labels from `sdd-plus/specs/launchguardian-framework.md`.
+
+Examples:
+
+- `Gate 4 — Secrets & Config Hygiene`
+- `Gate 6 — API Auth & Object Authorization`
+- `Gate 10 — Dependency, SBOM & Supply Chain`
+- `Gate 20 — Launch Decision`
+
+Findings that affect several gates may include the primary gate in `related_gate` and list additional gates in report-specific metadata.
+
+## Command Examples
+
+```bash
+launchguardian scan --target .
+launchguardian scan --target . --output-dir reports/launchguardian
+launchguardian scan --target . --staging-url https://staging.example.com
+launchguardian analyze --input reports/raw --output-dir reports/launchguardian
+launchguardian validate-lgf --target .
+```
+
+## Exit Codes
+
+| Code | Meaning |
+| --- | --- |
+| 0 | Approved or no blocking findings. |
+| 1 | Blocked by Critical/High policy or invalid LGF config. |
+| 2 | Tool or scanner execution failure. |
+| 3 | Scope, permission, or configuration error. |
+
+## Config Discovery Rules
+
+The CLI should discover LGF configuration relative to `--target`:
+
+1. Look for `sdd-plus/security/gate-applicability.yml`.
+2. Fall back to `sdd-plus/security/gate-applicability.output.template.yml` only as template guidance, not project truth.
+3. Look for `scope-contract.yml`, `product-inventory.yml`, `data-inventory.yml`, `auth-role-matrix.yml`, `dependency-policy.yml`, and `launch-decision.md` or `launch-decision.yml`.
+4. If required project LGF files are missing, report missing files and mark launch as blocked or incomplete depending on mode.
+
+Release gate scans should fail closed when required project LGF files are missing. Local scans may report missing files as setup findings.
+
+## Scanner Availability Behavior
+
+The CLI should detect scanner availability before running checks:
+
+- If Semgrep, Gitleaks, or Trivy are installed, run the available scanner.
+- If a scanner is missing, emit a `scanner_unavailable` finding.
+- Missing scanners must not be silently ignored.
+- Severity depends on required gates and scan mode.
+- Release gate scans should treat missing required scanners as blocking unless the relevant gate is not applicable or the absence is explicitly accepted by policy.
+
+## Report Directory Layout
+
+```text
+reports/launchguardian/
+|-- launchguardian-report.md
+|-- launchguardian-report.json
+|-- normalized-findings.json
+|-- raw/
+|   |-- semgrep-results.json
+|   |-- gitleaks-results.json
+|   `-- trivy-results.json
+`-- evidence/
+```
+
+## JSON Schema And Versioning
+
+JSON outputs should include schema metadata:
+
+- `schema_name`, such as `launchguardian.report`.
+- `schema_version`, starting at `0.1.0`.
+- `generated_at`.
+- `launchguardian_version`.
+- `target`.
+
+Breaking changes to report or finding shape should increment the schema version. The CLI should reject unsupported future major versions and warn on unknown minor fields while preserving forward-compatible data when possible.
 
 ## Future Separate Repo Architecture
 

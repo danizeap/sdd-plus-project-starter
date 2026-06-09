@@ -1,4 +1,7 @@
-# Copy this file to a project-specific filename before using it as a launch record.
+# Neutral schema/reference template for LGF gate applicability.
+# This file documents the fields and may leave gates unknown to avoid project assumptions.
+# For project output, copy sdd-plus/security/gate-applicability.output.template.yml to
+# sdd-plus/security/gate-applicability.yml and apply always-on defaults.
 project: ""
 change: ""
 date: ""

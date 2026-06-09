@@ -15,6 +15,11 @@ Use these files as the local source of truth:
 - `sdd-plus/security/gate-applicability.template.yml`
 - `sdd-plus/specs/MASTER_LAUNCHGUARDIAN_CONTEXT.md`, if present
 
+Template roles:
+
+- `sdd-plus/security/gate-applicability.template.yml` is the neutral schema/reference template. It may leave gates unknown to show the fields without making project assumptions.
+- `sdd-plus/security/gate-applicability.output.template.yml` is the project-use output template. It should apply always-on defaults for deployable projects.
+
 ## Required Output
 
 Before applying LGF to a project, create or update:
@@ -23,7 +28,7 @@ Before applying LGF to a project, create or update:
 sdd-plus/security/gate-applicability.yml
 ```
 
-Use `sdd-plus/security/gate-applicability.output.template.yml` as the reusable project output template.
+Use `sdd-plus/security/gate-applicability.output.template.yml` as the reusable project output template. Do not copy the neutral schema/reference template as the project output unless you also apply the required project defaults.
 
 Each gate must be marked with:
 

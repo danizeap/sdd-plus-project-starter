@@ -46,7 +46,9 @@ Describe the deployable artifact, users, environments, major components, and ext
 
 ## Critical Findings
 
-Critical findings block launch.
+Critical findings block launch until fixed and verified, removed from launch scope, or downgraded by new evidence.
+
+An exceptional Critical override is not normal approval. If a project defines one, it must require explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 
 | Finding | Evidence | Required Fix | Owner | Status |
 | --- | --- | --- | --- | --- |

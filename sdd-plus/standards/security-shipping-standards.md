@@ -89,9 +89,9 @@ Each gate may be marked `applies: true`, `applies: false`, or `applies: unknown`
 
 ## Blocking Findings
 
-Critical findings block launch.
+Critical findings block launch until the finding is fixed and verified, the affected feature or asset is removed from launch scope, or the severity is downgraded by new evidence.
 
-A change must not be marked launch-ready while any critical finding remains open. Critical findings should be fixed, removed from scope, or converted into a non-critical finding only when new evidence justifies the downgrade.
+A change must not be marked launch-ready while any critical finding remains open. An exceptional Critical override is not normal approval. If a project defines one, it must require explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 
 High findings should block launch unless a human owner accepts the risk with a mitigation, due date, and rollback or containment plan.
 

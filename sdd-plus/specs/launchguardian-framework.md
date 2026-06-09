@@ -75,12 +75,14 @@ For any high-risk gate, `applies: false` is invalid unless all of the following 
 
 Use severity to decide whether launch can proceed:
 
-- Critical: blocks launch until fixed or removed from scope. Critical findings cannot be accepted as routine launch risks.
+- Critical: blocks launch until the finding is fixed and verified, the affected feature or asset is removed from launch scope, or the severity is downgraded by new evidence. Critical findings cannot be accepted as routine launch risks.
 - High: should block launch unless a human owner explicitly accepts the risk with a time-bound mitigation plan.
 - Medium: may launch with owner, mitigation, and follow-up date.
 - Low: may launch with tracking or documentation.
 
-Critical findings block launch.
+Critical findings block launch until fixed and verified, removed from launch scope, or downgraded by new evidence.
+
+An exceptional Critical override is not normal approval. If a project defines one, it must require explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 
 ## High-Impact Changes
 
@@ -104,6 +106,6 @@ For each active SDD+ change:
 2. If LGF applies, update or create the relevant LGF artifacts.
 3. Record applied and skipped gates in the change packet.
 4. Record decisions, accepted risks, and evidence.
-5. Do not mark the change complete if a critical finding remains open.
+5. Do not mark the change launch-ready if a critical finding remains open.
 
 LGF records are part of durable project memory. Do not rely on chat history for launch-critical decisions.

@@ -68,7 +68,9 @@ Use these statuses in project readiness records:
 - `approved_with_accepted_risks`: launch may proceed with documented accepted risks, owners, mitigations, and review dates.
 - `approved`: launch may proceed with no blocking findings or unresolved required decisions.
 
-Critical findings keep the launch decision blocked unless explicitly approved in writing by an owner with a documented remediation or compensating-control plan.
+Critical findings block launch until the finding is fixed and verified, the affected feature or asset is removed from launch scope, or the severity is downgraded by new evidence.
+
+An exceptional Critical override is not normal approval. If a project defines one, it must require explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 
 ## Minimum LGF Packet Before Launch
 
@@ -85,7 +87,8 @@ Before launch, a project should have:
 - [ ] Dependency policy created.
 - [ ] Accepted risks log created, even when no risks are accepted.
 - [ ] Launch decision file created.
-- [ ] Critical findings reviewed and resolved, removed from launch scope, or explicitly owner-approved with remediation or compensating controls.
+- [ ] Critical findings fixed and verified, removed from launch scope, or downgraded by new evidence.
+- [ ] Any exceptional Critical override includes explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 - [ ] Rollback or disable plan documented.
 - [ ] Final launch owner approval recorded.
 

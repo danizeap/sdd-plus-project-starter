@@ -2,7 +2,9 @@
 
 Copy this file to a project-specific filename before using it as a launch record.
 
-Critical findings block launch and should not be accepted as routine launch risks.
+Critical findings block launch until fixed and verified, removed from launch scope, or downgraded by new evidence. They should not be accepted as routine launch risks.
+
+An exceptional Critical override is not normal approval. If a project defines one, it must require explicit owner approval, documented rationale, compensating controls, and follow-up remediation.
 
 ## Related Gates
 

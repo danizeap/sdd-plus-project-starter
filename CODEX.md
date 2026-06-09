@@ -54,6 +54,8 @@ Critical findings block launch. Do not mark a deployable change launch-ready whi
 
 Treat security, auth, privacy, deployment, database, frontend exposure, and infrastructure changes as high-impact.
 
+Before applying LGF to a project, create or update `sdd-plus/security/gate-applicability.yml` and mark every gate as `applies: true`, `applies: false`, or `applies: unknown` with confidence, evidence, and reasons. Use `sdd-plus/specs/lgf-gate-applicability-system.md` and `sdd-plus/security/gate-applicability.output.template.yml`.
+
 Commands:
 
 ```powershell

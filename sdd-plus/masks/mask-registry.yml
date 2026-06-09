@@ -51,10 +51,17 @@ masks:
 
   - id: backend
     name: Backend Mask
-    status: placeholder
-    version: 0.0.0
+    status: active
+    version: 0.1.0
     path: sdd-plus/masks/backend/mask.md
-    purpose: Guide safe backend implementation.
+    purpose: Guide safe, permissioned, testable, maintainable backend implementation and review.
+    primary_use_cases:
+      - Implement or review backend routes, handlers, services, server actions, jobs, webhooks, integrations, or data mutations.
+      - Validate backend auth, authorization, object-level access, input handling, errors, logging, config, and operational readiness.
+      - Prevent backend-specific spaghetti code while keeping routes thin and service boundaries clear.
+    supporting_use_cases:
+      - Implementation after Architect Mask planning.
+      - Pre-launch backend evidence before LaunchGuardian review.
 
   - id: frontend
     name: Frontend Mask

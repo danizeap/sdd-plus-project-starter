@@ -96,6 +96,22 @@ Graduated masks should still remain in the registry so Codex knows when to invok
 
 Architect is the first active planning mask. It produces a Build Blueprint before implementation when a task involves meaningful system design, such as a new app, major feature, data-backed workflow, integration, AI agent, API, auth, storage, deployment, or long-term maintainability decision.
 
+## First Active Implementation Mask
+
+Backend is the first active implementation mask. It governs backend routes, API handlers, services, server actions, database access, auth, authorization, jobs, webhooks, integrations, server-side config, and server-side AI/RAG/agent logic.
+
+Backend Mask asks:
+
+```text
+Is this backend change safe, permissioned, testable, maintainable, and reviewable?
+```
+
+Its registry entry is `backend`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/backend/mask.md
+```
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

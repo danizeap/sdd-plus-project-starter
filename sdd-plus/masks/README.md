@@ -100,6 +100,8 @@ Architect is the first active planning mask. It produces a Build Blueprint befor
 
 Backend is the first active implementation mask. It governs backend routes, API handlers, services, server actions, database access, auth, authorization, jobs, webhooks, integrations, server-side config, and server-side AI/RAG/agent logic.
 
+Backend Mask v0.1.1 strengthens development-time discipline with lightweight backend change planning, small-diff expectations, existing-pattern discipline, ownership maps, backend layer contracts, future extension points, and plain-English test intent.
+
 Backend Mask asks:
 
 ```text

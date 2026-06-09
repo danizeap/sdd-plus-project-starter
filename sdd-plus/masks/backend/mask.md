@@ -5,7 +5,7 @@
 - id: backend
 - name: Backend Mask
 - status: active
-- version: 0.1.0
+- version: 0.1.1
 - owner: Daniel
 - last_updated: 2026-06-09
 
@@ -16,6 +16,8 @@ Backend Mask is the disciplined backend implementation and review mask.
 Its job is to stop Codex from creating fragile, insecure, untested, messy backend code. A backend change is not acceptable just because it works. It must be safe, understandable, permissioned, testable, reviewable, maintainable, and shaped so the next feature has a clear place to live.
 
 Backend Mask enforces backend safety, correctness, and maintainability. It is responsible for preventing backend-specific spaghetti code. A future Maintainability / Refactor Mask may handle repo-wide technical debt, but Backend Mask must still enforce clean backend structure now.
+
+Backend Mask is a development-time operating procedure, not a scanner. Scanner/CLI responsibility belongs to LaunchGuardian.
 
 ## When To Use This Mask
 
@@ -97,6 +99,35 @@ Codex must follow existing backend conventions unless there is a clear reason no
 - existing test style;
 - existing naming conventions.
 
+Before meaningful backend code changes, Codex must produce a short Backend Change Plan. This plan does not replace Architect Mask. It is a lightweight backend preflight to prevent Codex from editing blindly.
+
+## Backend Change Plan Format
+
+```md
+# Backend Change Plan
+
+## Selected Mask
+Backend Mask
+
+## Change Classification
+read-only / data mutation / auth or permission change / database or schema change / background job / webhook or integration / AI or RAG backend / config or secrets change / refactor-only / mixed
+
+## Existing Pattern Found
+What existing route, controller, service, validation, error handling, auth, database, config, and test patterns will Codex follow?
+
+## Intended Files
+Which files Codex expects to touch and why.
+
+## Backend Design Choice
+Where the logic will live and why.
+
+## Risks Before Coding
+Auth, data ownership, database mutation, integration, cost, maintainability, or contract risks.
+
+## Stop Conditions
+What would make Codex stop and ask for human review?
+```
+
 ## Change Classification
 
 Before implementation, Codex must classify the backend change as one of:
@@ -148,6 +179,40 @@ Services and use-cases should handle:
 - database calls through clear boundaries.
 
 Do not create extra factories, managers, abstract base classes, generic repositories, or deep inheritance layers unless the project already uses them or the complexity clearly justifies them.
+
+## Diff Discipline
+
+Codex should prefer small, reviewable backend diffs over giant multi-area rewrites. If a backend change touches more than one layer, Codex must explain why.
+
+Examples:
+
+- Route + service + test = normal.
+- Route + service + DB schema + auth middleware + config + job worker = requires stronger justification.
+
+## No New Pattern Without Permission
+
+Codex must not introduce a new backend architectural pattern if an existing project pattern already solves the problem. Do not invent new repository layers, service factories, error wrappers, validation libraries, config patterns, dependency injection systems, auth helpers, folder conventions, deep inheritance structures, or generic manager/helper layers unless:
+
+- the project already uses the pattern;
+- the task explicitly requires it;
+- or Codex explains why the existing pattern is insufficient.
+
+## Refactor Permission Rule
+
+Codex must not perform opportunistic backend refactors unless they are required for the requested change or explicitly approved. Small local cleanup required to implement the backend change safely is allowed. Large unrelated backend refactors because Codex noticed ugly code are not allowed.
+
+## Backend Layer Contract
+
+Backend code should not blur layer responsibilities without explanation.
+
+- Route/controller: parse request, validate input, call service/use-case, return response.
+- Service/use-case: business rules, orchestration, permission-aware operations, coordination of database and integration work.
+- Database/repository/helper: data access only, no hidden business decisions unless the project convention says otherwise.
+- Integration client: external API calls, retries/timeouts, response normalization, integration-specific error handling.
+- Job/worker: idempotent execution, logging, retry/failure behavior, safe re-runs.
+- Config module: server-only config loading, validation, safe defaults, no exposure of secrets to browser/public config.
+
+If Codex cannot explain where future related logic should go, the backend structure may not be clear enough.
 
 ## Required Outputs
 
@@ -206,6 +271,14 @@ Cover:
 - how queries are scoped to the correct owner
 - what prevents cross-user or cross-tenant access
 
+If the change touches private, customer, candidate, company, tenant, or user-owned data, include a human-readable ownership map:
+
+| Data touched | Owner | Access rule | Where enforced |
+|---|---|---|---|
+| Candidate profile | Company account | Same company only | `candidateService.getByCompany()` |
+| Role card | Client organization | Org members only | `requireOrgAccess()` |
+| Transcript | Internal team | Admin/recruiter only | `requireRole()` |
+
 ## Database / Storage Access
 Describe queries, mutations, storage operations, migrations, indexes, transactions, or rollback behavior.
 
@@ -232,6 +305,23 @@ Cover:
 - file size / module structure
 - unnecessary abstraction avoided
 - whether the change follows existing project conventions
+
+## Backend Decisions Made
+List important backend design decisions made during the change.
+
+Examples:
+- Chose existing `services/` pattern instead of creating a new repository layer.
+- Kept validation in the route because the project already validates handlers directly.
+- Did not add a new dependency because existing schema validation was enough.
+- Split logic into a service because the route was becoming too large.
+
+## Future Extension Point
+Explain where future related backend logic should go.
+
+Examples:
+- Future candidate scoring logic should go in `candidateScoringService`, not directly in the route.
+- Future webhook event types should be added through the existing webhook dispatcher.
+- Future provider-specific CRM logic should live in integration clients, not in route handlers.
 
 ## Secrets & Config
 List environment variables/config used.
@@ -291,6 +381,19 @@ For risky backend changes, explain whether a feature flag, config toggle, or saf
 ## Tests Added or Updated
 List tests added/updated and what behavior they prove.
 
+## Test Intent
+Explain what the tests prove in plain English.
+
+Examples:
+- Valid users can create the resource.
+- Invalid users cannot access another user's resource.
+- Invalid payloads are rejected.
+- Duplicate webhook events do not duplicate records.
+- External API failure returns a safe error.
+- The service keeps business logic out of the route handler.
+
+Listing test commands is not enough. Backend Mask must explain the behavior being proven.
+
 ## Tests Run
 List commands run and results.
 
@@ -333,6 +436,19 @@ Backend Mask supports these result types:
 
 Backend Mask should pass only if Codex clearly explains:
 
+- Backend Change Plan was produced before implementation;
+- existing patterns inspected;
+- intended files were scoped;
+- backend design choice was explained;
+- diff was reviewable;
+- no new backend pattern was introduced without justification;
+- backend decisions made were documented;
+- ownership map was provided when relevant;
+- layer responsibilities remained clear;
+- future extension point was explained;
+- test intent was explained;
+- no opportunistic backend refactor occurred without approval;
+- backend review questions can be answered;
 - why Backend Mask applies;
 - change classification;
 - backend scope;
@@ -365,6 +481,14 @@ Backend Mask should pass only if Codex clearly explains:
 
 Backend Mask must block if:
 
+- Codex edits meaningful backend code without a Backend Change Plan;
+- Codex introduces a new backend architectural pattern without justification or user approval;
+- Codex performs unrelated backend refactors without approval;
+- private or tenant/customer/candidate/company data is touched and Codex cannot produce a clear ownership map;
+- backend layer responsibilities are blurred without explanation;
+- Codex cannot explain where future related backend logic should go;
+- Codex lists test commands but cannot explain what behavior the tests prove;
+- the backend diff becomes too large to review safely and cannot be split;
 - backend route modifies data without auth;
 - sensitive data is accessed without object-level authorization;
 - private, customer, candidate, company, or tenant data has no ownership boundary;
@@ -399,6 +523,24 @@ Backend Mask must also block on maintainability if:
 - Codex cannot explain the backend structure it chose;
 - Codex introduces unnecessary abstraction that makes the code harder to understand;
 - the change is too large to review and Codex cannot split it into safer steps.
+
+## Backend Review Questions
+
+Before reporting `PASS`, Codex must be able to answer:
+
+- Can I explain this backend change in plain English?
+- Can I point to where validation happens?
+- Can I point to where authentication happens?
+- Can I point to where authorization happens?
+- Can I point to where object ownership is enforced?
+- Can I point to where business logic lives?
+- Can I point to where database access happens?
+- Can I point to what test proves the important behavior?
+- Can I explain what could break?
+- Can I explain how to roll it back?
+- Can I explain where future related logic should go?
+
+If the answer to any required question is no, Backend Mask should not return `PASS`.
 
 ## Human Review Required
 
@@ -482,6 +624,8 @@ For risky backend changes, Codex must explain whether a feature flag, config tog
 Backend Mask must not:
 
 - create a CLI or executable tooling just to enforce this mask;
+- build BackendGuardian;
+- add Semgrep rules or scanner logic;
 - replace Architect Mask for major planning;
 - replace API Contract Mask for endpoint contract design;
 - replace Database Steward Mask for schema, migration, index, RLS, tenant isolation, backup, or destructive data decisions;
@@ -494,8 +638,12 @@ Backend Mask must not:
 
 Backend work is done only when:
 
+- Backend Change Plan was produced before implementation;
 - scope is clear;
 - change classification is stated;
+- existing patterns and intended files are identified;
+- backend design choice is explained;
+- diff scope is reviewable;
 - files changed are listed;
 - routes/functions affected are inventoried;
 - inputs are validated;
@@ -504,14 +652,19 @@ Backend work is done only when:
 - database/storage operations are explained;
 - mutation safety is explained where relevant;
 - maintainability is justified;
+- backend decisions made are documented;
+- layer responsibilities are clear;
+- future extension point is explained;
 - errors/logging are safe;
 - performance/cost sanity is checked;
 - no silent behavior changes are identified or they are documented;
 - tests are added or justified;
+- test intent is explained;
 - tests are run;
 - negative tests are included where needed;
 - risks are listed;
 - rollback is described;
+- backend review questions can be answered;
 - Daniel Summary is provided;
 - next mask is recommended.
 
@@ -564,6 +717,10 @@ The update query scopes by both project id and owner/team membership so another 
 ## Data Ownership Boundary
 Project data is team-owned. Queries are scoped to teams the current user belongs to, preventing cross-team access.
 
+| Data touched | Owner | Access rule | Where enforced |
+|---|---|---|---|
+| Project | Team | Team members only | `updateProjectForUser()` |
+
 ## Database / Storage Access
 One bounded update runs in the existing project service. No schema changes or storage writes.
 
@@ -572,6 +729,14 @@ The update is idempotent for the same payload. No transaction is needed because 
 
 ## Backend Maintainability
 The route remains thin. Business rules and permission-aware database access live in the existing project service.
+
+## Backend Decisions Made
+- Followed the existing project service pattern instead of creating a new repository layer.
+- Kept the route focused on parsing, validation, service call, and response.
+- Did not add a new dependency because existing validation utilities were sufficient.
+
+## Future Extension Point
+Future project business rules should go in the project service, not directly in the route handler.
 
 ## Secrets & Config
 No new environment variables or config.
@@ -599,6 +764,9 @@ Not needed for a small authenticated update endpoint.
 
 ## Tests Added or Updated
 Added route/service tests for successful update, invalid input, unauthenticated request, and wrong-user denial.
+
+## Test Intent
+The tests prove that valid team members can update the project, invalid payloads are rejected, unauthenticated users are denied, and a user outside the team cannot mutate the project.
 
 ## Tests Run
 npm test -- projects

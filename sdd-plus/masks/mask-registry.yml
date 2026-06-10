@@ -104,19 +104,19 @@ masks:
     supporting_use_cases:
       - Repo understanding before Architect, API Contract, Database Steward, Backend, Frontend, Testing, MCP Ranger, or LaunchGuardian work.
 
-  - id: frontend
-    name: Frontend Mask
-    status: placeholder
-    version: 0.0.0
-    path: sdd-plus/masks/frontend/mask.md
-    purpose: Guide frontend/UI implementation.
-
   - id: testing
     name: Testing Mask
     status: active
     version: 0.1.0
     path: sdd-plus/masks/testing/mask.md
     purpose: Prove meaningful behavior with appropriate tests, verification commands, and evidence reports.
+
+  - id: frontend
+    name: Frontend Mask
+    status: active
+    version: 0.1.0
+    path: sdd-plus/masks/frontend/mask.md
+    purpose: Govern approved-design implementation, frontend structure, UI states, accessibility basics, browser-side security, and product integration without unauthorized redesign.
 
   - id: explainer
     name: Explainer Mask

@@ -178,6 +178,22 @@ Its registry entry is `testing`, and its formal mask definition lives at:
 sdd-plus/masks/testing/mask.md
 ```
 
+## Active Frontend Mask
+
+Frontend Mask is active at v0.1.0. It governs approved-design implementation, design handoff, frontend architecture, components and routes, client API integration, UI states, responsive behavior, accessibility basics, browser-side security, design fidelity, and Testing and LaunchGuardian handoff.
+
+Frontend Mask asks:
+
+```text
+Can this approved design be implemented and connected to the real product without visual drift, fragile frontend code, accessibility failures, browser-side security mistakes, or broken application behavior?
+```
+
+Its registry entry is `frontend`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/frontend/mask.md
+```
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

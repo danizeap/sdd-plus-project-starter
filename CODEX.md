@@ -57,6 +57,16 @@ Codex must:
 
 For trivial edits, typo fixes, or formatting-only changes, Codex may state that no full mask execution is required.
 
+## Codex Mask Framework Usage Protocol
+
+Before meaningful work, follow `sdd-plus/protocols/framework-usage.md` as the canonical operating protocol.
+
+Declare project type, task summary/type, execution mode, primary/supporting masks, exact recommended model and reasoning level, current-model action, context to load and exclude, approval need, expected artifacts, and stop conditions.
+
+Use one primary mask by default. Add only the smallest sufficient supporting set. Load context progressively. FULL means maximum relevant rigor, not every mask, every file, or every report.
+
+Codex reports. ChatGPT verifies.
+
 ## LaunchGuardian Framework
 
 LaunchGuardian Framework (LGF) is required for deployable projects.

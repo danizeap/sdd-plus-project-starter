@@ -31,6 +31,16 @@ If no mask fits, Codex must propose a new mask instead of improvising.
 
 For trivial edits, typo fixes, or formatting-only changes, Codex may state that no full mask execution is required.
 
+## Using The Mask Collection
+
+Masks are task-routed, not a rigid waterfall. Use `sdd-plus/protocols/framework-usage.md` as the canonical operating protocol for model, mode, mask, context, approval, evidence, escalation, and reporting decisions.
+
+One primary mask is the default. Supporting masks must be justified and kept to the smallest sufficient set. LITE, STANDARD, and FULL define how much rigor is needed for the task; FULL means maximum relevant rigor, not every mask or every file.
+
+Use Codebase Cartographer according to repository knowledge state: KNOWN_AND_MAPPED, KNOWN_BUT_STALE, or UNKNOWN. Use LaunchGuardian for meaningful ship, release, deployment, or security decisions, not every edit.
+
+After meaningful real-project tasks or workstreams, record friction and useful interventions with `sdd-plus/protocols/dogfood-observation.template.md`.
+
 ## How Codex Chooses Masks
 
 Codex should review `mask-registry.yml`, compare the task against each mask's purpose and use cases, then select:
@@ -73,7 +83,7 @@ At minimum, the report should identify:
 - files changed;
 - decisions made;
 - checks or tests run;
-- result: PASS, FAIL, or PASS WITH FOLLOW-UP;
+- result: PASS, PASS WITH OPEN QUESTIONS, or BLOCKED;
 - risks, assumptions, and follow-up tasks.
 
 Evidence should be practical and readable. It should help Daniel understand what Codex did, why it did it, and whether the result is safe to use.

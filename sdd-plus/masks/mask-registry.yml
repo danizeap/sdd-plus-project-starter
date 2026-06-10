@@ -86,10 +86,17 @@ masks:
 
   - id: database-steward
     name: Database Steward Mask
-    status: placeholder
-    version: 0.0.0
+    status: active
+    version: 0.1.0
     path: sdd-plus/masks/database-steward/mask.md
-    purpose: Design and review schemas, migrations, indexes, data access, and RLS.
+    purpose: Design and review database/storage safety, ownership, tenant isolation, migrations, indexes, retention, deletion, audit trails, backups, and RAG/vector storage.
+    primary_use_cases:
+      - Design or review database schemas, migrations, indexes, constraints, seed data, imports, exports, deletion, retention, audit logs, RLS policies, and storage behavior.
+      - Prevent unowned, unsafe, irreversible, unindexed, unrecoverable, or privacy-dangerous data structures.
+      - Review RAG/vector storage metadata, access boundaries, source links, and deletion behavior.
+    supporting_use_cases:
+      - Data model review after Architect Mask planning.
+      - Storage and lifecycle review before Backend, API Contract, Testing, or LaunchGuardian work depends on the data model.
 
   - id: testing
     name: Testing Mask

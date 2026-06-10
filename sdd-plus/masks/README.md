@@ -130,6 +130,22 @@ Its registry entry is `api-contract`, and its formal mask definition lives at:
 sdd-plus/masks/api-contract/mask.md
 ```
 
+## Active Database Steward Mask
+
+Database Steward Mask is active at v0.1.0. It governs database/storage design, migrations, ownership, tenant isolation, indexes, sensitive data, deletion, retention, audit trails, backups, and RAG/vector storage.
+
+Database Steward Mask asks:
+
+```text
+Is this data model safe, owned, isolated, reversible, queryable, maintainable, and lifecycle-aware?
+```
+
+Its registry entry is `database-steward`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/database-steward/mask.md
+```
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

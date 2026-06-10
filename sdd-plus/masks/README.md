@@ -114,6 +114,22 @@ Its registry entry is `backend`, and its formal mask definition lives at:
 sdd-plus/masks/backend/mask.md
 ```
 
+## Active API Contract Mask
+
+API Contract Mask is active at v0.1.0. It governs endpoint and interface contracts before backend, frontend, database, testing, or LaunchGuardian implementation work depends on them.
+
+API Contract Mask asks:
+
+```text
+Is this API boundary clear, permissioned, stable, testable, documented, and safe for every caller that depends on it?
+```
+
+Its registry entry is `api-contract`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/api-contract/mask.md
+```
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

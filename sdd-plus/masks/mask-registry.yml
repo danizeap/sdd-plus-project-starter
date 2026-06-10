@@ -72,10 +72,17 @@ masks:
 
   - id: api-contract
     name: API Contract Mask
-    status: placeholder
-    version: 0.0.0
+    status: active
+    version: 0.1.0
     path: sdd-plus/masks/api-contract/mask.md
-    purpose: Design and review API contracts, schemas, auth, and endpoint behavior.
+    purpose: Design and review clear, permissioned, stable, testable API contracts before implementation.
+    primary_use_cases:
+      - Design or review new, modified, deleted, internal, external, webhook, agent/tool, or client-facing API contracts.
+      - Define endpoint purpose, caller, request/response shape, auth, object authorization, errors, data exposure, pagination, idempotency, versioning, and client impact.
+      - Prevent vague, unsafe, breaking, undocumented, or inconsistent API boundaries before Backend, Frontend, Database Steward, Testing, or LaunchGuardian work.
+    supporting_use_cases:
+      - Contract design after Architect Mask planning.
+      - API boundary definition before Backend, Frontend, Database Steward, Testing, or LaunchGuardian review.
 
   - id: database-steward
     name: Database Steward Mask

@@ -194,6 +194,24 @@ Its registry entry is `frontend`, and its formal mask definition lives at:
 sdd-plus/masks/frontend/mask.md
 ```
 
+## Active Explainer Mask
+
+Explainer Mask is active at v0.1.0. It is the understanding and ownership layer that turns meaningful code and system changes into clear, technically honest explanations for Daniel.
+
+Explainer Mask asks:
+
+```text
+Can Daniel understand what changed, how it works, where the important logic lives, what could break, and what he should read next?
+```
+
+Its registry entry is `explainer`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/explainer/mask.md
+```
+
+Explainer Mask is distinct from Codebase Cartographer Mask. Codebase Cartographer creates durable repo maps for future Codex orientation; Explainer Mask explains a specific change, feature, subsystem, or bugfix to Daniel in plain English and technical layers.
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

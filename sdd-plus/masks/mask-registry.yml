@@ -120,10 +120,10 @@ masks:
 
   - id: explainer
     name: Explainer Mask
-    status: placeholder
-    version: 0.0.0
+    status: active
+    version: 0.1.0
     path: sdd-plus/masks/explainer/mask.md
-    purpose: Explain code, architecture, and implementation decisions clearly for Daniel.
+    purpose: Explain meaningful software changes in plain English and technical layers so Daniel can understand and own the system without reading every line.
 
   - id: mcp-ranger
     name: MCP Ranger Mask

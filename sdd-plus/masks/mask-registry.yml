@@ -127,7 +127,7 @@ masks:
 
   - id: mcp-ranger
     name: MCP Ranger Mask
-    status: placeholder
-    version: 0.0.0
+    status: active
+    version: 0.1.0
     path: sdd-plus/masks/mcp-ranger/mask.md
-    purpose: Review MCP/tool integrations, permissions, data access, and revocation risks.
+    purpose: Govern MCP, connector, tool, API, automation, and agent permissions, side effects, approvals, auditability, revocation, cost, and failure boundaries.

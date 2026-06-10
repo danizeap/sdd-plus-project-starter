@@ -212,6 +212,24 @@ sdd-plus/masks/explainer/mask.md
 
 Explainer Mask is distinct from Codebase Cartographer Mask. Codebase Cartographer creates durable repo maps for future Codex orientation; Explainer Mask explains a specific change, feature, subsystem, or bugfix to Daniel in plain English and technical layers.
 
+## Active MCP Ranger Mask
+
+MCP Ranger Mask is active at v0.1.0. It governs MCP servers, ChatGPT connectors, Codex tools, APIs, automations, agent tools, browser tools, filesystem tools, databases, CRMs, cloud services, webhooks, and other privileged integrations.
+
+MCP Ranger Mask asks:
+
+```text
+Does this tool or MCP have only the access it needs, only for the right actor and task, with safe approval, logging, revocation, and failure boundaries?
+```
+
+Its registry entry is `mcp-ranger`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/mcp-ranger/mask.md
+```
+
+MCP Ranger treats every tool as a privileged actor. It requires explicit purpose, owner, calling actor, risk class, access mode, permissions, data access, side effects, approval model, audit trail, rate and cost boundaries, timeout and failure behavior, prompt-injection handling, and revocation path before meaningful tool work proceeds.
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

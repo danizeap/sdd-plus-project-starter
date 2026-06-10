@@ -113,10 +113,10 @@ masks:
 
   - id: testing
     name: Testing Mask
-    status: placeholder
-    version: 0.0.0
+    status: active
+    version: 0.1.0
     path: sdd-plus/masks/testing/mask.md
-    purpose: Guide unit, integration, smoke, regression, and acceptance testing.
+    purpose: Prove meaningful behavior with appropriate tests, verification commands, and evidence reports.
 
   - id: explainer
     name: Explainer Mask

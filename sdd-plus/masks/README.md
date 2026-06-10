@@ -162,6 +162,22 @@ Its registry entry is `codebase-cartographer`, and its formal mask definition li
 sdd-plus/masks/codebase-cartographer/mask.md
 ```
 
+## Active Testing Mask
+
+Testing Mask is active at v0.1.0. It governs test design, test changes, regression coverage, verification commands, skipped-test disclosure, manual verification, and evidence reporting.
+
+Testing Mask asks:
+
+```text
+What behavior must be proven, and what tests prove it?
+```
+
+Its registry entry is `testing`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/testing/mask.md
+```
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

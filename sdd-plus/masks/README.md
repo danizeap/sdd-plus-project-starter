@@ -146,6 +146,22 @@ Its registry entry is `database-steward`, and its formal mask definition lives a
 sdd-plus/masks/database-steward/mask.md
 ```
 
+## Active Codebase Cartographer Mask
+
+Codebase Cartographer Mask is active at v0.1.0. It governs repo mapping, durable codebase maps, read-first guides, token-saving orientation, dependency maps, data-flow maps, API maps, test maps, risk maps, and map freshness.
+
+Codebase Cartographer Mask asks:
+
+```text
+Can Codex understand this repo from durable maps before rereading everything or changing code?
+```
+
+Its registry entry is `codebase-cartographer`, and its formal mask definition lives at:
+
+```text
+sdd-plus/masks/codebase-cartographer/mask.md
+```
+
 ## First Graduated Mask
 
 LaunchGuardian is the first graduated Codex Mask.

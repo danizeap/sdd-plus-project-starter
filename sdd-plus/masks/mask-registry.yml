@@ -63,13 +63,6 @@ masks:
       - Implementation after Architect Mask planning.
       - Pre-launch backend evidence before LaunchGuardian review.
 
-  - id: frontend
-    name: Frontend Mask
-    status: placeholder
-    version: 0.0.0
-    path: sdd-plus/masks/frontend/mask.md
-    purpose: Guide frontend/UI implementation.
-
   - id: api-contract
     name: API Contract Mask
     status: active
@@ -97,6 +90,26 @@ masks:
     supporting_use_cases:
       - Data model review after Architect Mask planning.
       - Storage and lifecycle review before Backend, API Contract, Testing, or LaunchGuardian work depends on the data model.
+
+  - id: codebase-cartographer
+    name: Codebase Cartographer Mask
+    status: active
+    version: 0.1.0
+    path: sdd-plus/masks/codebase-cartographer/mask.md
+    purpose: Create and maintain durable repo maps so Codex can understand codebases efficiently without rereading everything every time.
+    primary_use_cases:
+      - Create durable repo maps before broad work in an existing codebase.
+      - Update codebase maps after architecture, API, data, integration, test, or risk-area changes.
+      - Orient future Codex sessions with read-first guides and map freshness notes.
+    supporting_use_cases:
+      - Repo understanding before Architect, API Contract, Database Steward, Backend, Frontend, Testing, MCP Ranger, or LaunchGuardian work.
+
+  - id: frontend
+    name: Frontend Mask
+    status: placeholder
+    version: 0.0.0
+    path: sdd-plus/masks/frontend/mask.md
+    purpose: Guide frontend/UI implementation.
 
   - id: testing
     name: Testing Mask
